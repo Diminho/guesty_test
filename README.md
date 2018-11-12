@@ -31,3 +31,4 @@ Requests should go to `<host>/batch`. HTTP method is POST
   }
 }
 ```
+NOTE: Rate limit works only with GET requests (decreasing X-Ratelimit-Remaining), but with PUT requests X-Ratelimit-Remaining does not decrease and stays always number 4. Since batch service has inconsistent number of requests (requests to batch service and user service differs), so I thought to make a queue to collect requests for further processing if 429 code is appeared. 
